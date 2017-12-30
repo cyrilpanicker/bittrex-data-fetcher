@@ -1,0 +1,123 @@
+body{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+#nprogress .bar {
+    background:#000000;
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px #000000, 0 0 5px #000000;
+}
+
+.container{
+    width: 70%;
+    margin: 5% auto 5%;
+    opacity: 0;
+    transition: opacity 0.25s ease-in;
+}
+
+.container.loaded{
+    opacity: 1;
+}
+
+.loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity:1;
+    transition: opacity 0.25s ease-in;
+}
+
+.loader.loaded{
+    opacity: 0;
+}
+
+.controls-bar{
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.controls{
+    margin-bottom: 2%;
+}
+
+select{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    margin-right: 5%;
+    padding: 0.4% 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+}
+
+.market-select{
+    width: 30%;
+}
+
+.interval-select{
+    width: 20%;
+}
+
+button{
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    width: 20%;
+    padding: 0.6% 0%;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+}
+
+table{
+    width: 100%;
+}
+
+thead tr{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+tbody tr td{
+    padding: 0.6% 5%;
+    text-align: left;
+}
+
+tbody tr td a{
+    color: black;
+}
+
+thead tr th{
+    padding: 0.7% 5%;
+    text-align: left;
+}
+
+thead tr th:first-child{
+    width: 70%;
+}
+
+thead{
+    border: 1px solid #000000;
+}
+
+tbody{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-top: none;
+    border-bottom: none
+}
+
+tbody tr{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}

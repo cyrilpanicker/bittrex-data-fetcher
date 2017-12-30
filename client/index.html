@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bittrex Data Fetcher</title>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+    <div id="app">
+        <div :class="{container:true,loaded:loaded}">
+            <div class="controls-bar">
+                <div class="controls">
+                    <select class="market-select" v-model="selectedMarket" >
+                        <option :value="null">Select Market</option>
+                        <option :value="market.marketFilter" v-for="market in markets">
+                            {{market.marketName}}
+                        </option>
+                    </select>
+                    <select class="interval-select" v-model="selectedInterval">
+                        <option :value="null">Select Interval</option>
+                        <option value="day">Day</option>
+                        <option value="hour">Hour</option>
+                        <option value="thirtyMin">Thirty Min</option>
+                        <option value="fiveMin">Five Min</option>
+                        <option value="oneMin">One Min</option>
+                    </select>
+                    <button :disabled="selectedMarket===null || selectedInterval===null"
+                        @click="generateReport()" >
+                        Generate Report
+                    </button>
+                </div>
+                <div v-if="reports.length>0" class="message">Before generating a new report, check if the report already exists below.</div>
+            </div>
+            <table v-if="reports.length>0" class="reports-table">
+                <thead>
+                    <tr>
+                        <th>Filename</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="report in reports">
+                        <td><a :href="'/reports/'+report.filename">{{report.filename}}</a></td>
+                        <td>{{new Date(report.createdTime).toLocaleString()}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div :class="{loader:true,loaded:loaded}">loading...</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>

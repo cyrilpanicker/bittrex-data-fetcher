@@ -2,11 +2,16 @@
   "name": "bittrex-data-fetcher",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "start": "rimraf reports && mkdirp reports && node main.js"
+  },
   "author": "cyrilpanicker@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.1",
     "express": "^4.16.2",
-    "serve-index": "^1.9.1"
+    "json2csv": "^3.11.5",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2"
   }
 }
