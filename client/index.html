@@ -11,6 +11,31 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/main.css" />
+    <style type="text/css">
+        .container{
+            width: 70%;
+            margin: 5% auto 5%;
+            opacity: 0;
+            transition: opacity 0.25s ease-in;
+        }
+        
+        .container.loaded{
+            opacity: 1;
+        }
+        
+        .loader{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            opacity:1;
+            transition: opacity 0.25s ease-in;
+        }
+        
+        .loader.loaded{
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
