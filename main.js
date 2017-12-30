@@ -105,7 +105,7 @@ app.get('/api/report',(request,response)=>{
                                             data:apiResponse.data.result,
                                             fields:[
                                                 {value:row=>market.MarketName},
-                                                {value:row=>row['T']},
+                                                {value:row=>row['T'].replace('T',',')},
                                                 {value:row=>row['O'].toFixed(8),stringify:false},
                                                 {value:row=>row['H'].toFixed(8),stringify:false},
                                                 {value:row=>row['L'].toFixed(8),stringify:false},
