@@ -56,7 +56,7 @@ app.get('/api/markets',(request,response)=>{
 });
 
 app.get('/api/reports',(request,response)=>{
-    const result = [];
+    let result = [];
     const statsPromise = [];
     fs.readdir('reports',(error,files)=>{
         if(!files){
@@ -73,7 +73,7 @@ app.get('/api/reports',(request,response)=>{
                             createdTime:stats[i].birthtimeMs
                         });
                     }
-                    result.sort((item1,item2)=>item1.createdTime<item2.createdTime);
+                    result = result.sort((item1,item2)=>item2.createdTime-item1.createdTime);
                     response.send(result);
                 },
                 error => response.status(500).send(error)
